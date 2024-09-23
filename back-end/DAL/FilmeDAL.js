@@ -37,4 +37,46 @@ export default class FilmeDAL{
         await client.close();
         return result;
     }
+
+    async buscaFlexivel(filtro){
+        const client = await MongoClient.connect(
+        'mongodb://localhost:27017/'
+        );
+        console.log(filtro);
+        const filter = {
+            '$or': [
+                {
+                'title': new RegExp(filtro)
+                }, {
+                'extract': new RegExp(filtro)
+                }, {
+                'cast': {
+                    '$elemMatch': {
+                    '$regex': filtro, 
+                    '$options': 'i'
+                    }
+                }
+                }
+            ]
+        };
+        const coll = client.db('myfilmedb').collection('Filmes');
+        const cursor = coll.find(filter);
+        const result = await cursor.toArray();
+        await client.close();
+        return result;
+    }
+    async buscaGeneros(filtros){
+        const client = await MongoClient.connect(
+        'mongodb://localhost:27017/'
+        );
+        console.log(filtros);
+        const filter = {
+            'genres': { '$in': filtros } 
+        };
+        const coll = client.db('myfilmedb').collection('Filmes');
+        const cursor = coll.find(filter);
+        const result = await cursor.toArray();
+        await client.close();
+        return result;
+    }
 }

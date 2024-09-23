@@ -14,12 +14,22 @@ export default class FilmesController {
         }
         response.status(200).send({ msg:"Filmes inserido!", sucesso: true });
     }
-
     //http://localhost:8081/retornaGeneros
     async retornaGenero(request,response){
         let gen = await dal.retornaGeneros();
         console.log(gen)
         response.status(200).send(gen);
     }
-
+    //http://localhost:8081/buscaFlexivel?filtro=action
+    async buscaFlexivel(request,response){
+        let gen = await dal.buscaFlexivel(request.query.filtro);
+        console.log(gen)
+        response.status(200).send(gen);
+    }
+    //http://localhost:8081/buscaGeneros
+    async buscaGeneros(request,response){
+        let gen = await dal.buscaGeneros(request.body.filtro);
+        console.log(gen)
+        response.status(200).send(gen);
+    }
 }

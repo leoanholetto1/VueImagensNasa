@@ -6,11 +6,11 @@ const proutes = express.Router();
 
 proutes.post("/insere-filme", ctrl.insereFilmes);
 
-//proutes.get("/buscaGeneros", ctrl.buscaGeneros);
+proutes.get("/buscaGeneros", ctrl.buscaGeneros);
 
 proutes.get("/retornaGeneros", ctrl.retornaGenero);
 
-//proutes.get("/buscaFlexivel", ctrl.buscaFlexivel);
+proutes.get("/buscaFlexivel", ctrl.buscaFlexivel);
 
 
 export default proutes;
