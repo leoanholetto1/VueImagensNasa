@@ -8,6 +8,8 @@ proutes.post("/insere-filme", ctrl.insereFilmes);
 
 //proutes.get("/buscaGeneros", ctrl.buscaGeneros);
 
+proutes.get("/retornaGeneros", ctrl.retornaGenero);
+
 //proutes.get("/buscaFlexivel", ctrl.buscaFlexivel);
 
 
