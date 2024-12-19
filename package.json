@@ -1,18 +1,27 @@
 {
   "name": "trab",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "serve": "vue-cli-service serve"
   },
   "author": "Jessica e Leonardo",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.7",
+    "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "mongodb": "^6.9.0"
+    "date-fns": "^4.1.0",
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "~5.0.0"
   },
   "type": "module"
 }
